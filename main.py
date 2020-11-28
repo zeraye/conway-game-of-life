@@ -47,19 +47,13 @@ def revive(board, pos, cell_side):
 	board[i][j] = 1
 	return board
 
-def kill(board, pos, cell_side):
-	i = int(pos[0]/cell_side)
-	j = int(pos[1]/cell_side)
-	board[i][j] = 0
-	return board
-
 def draw(screen, board, grid, cell_side):
 	screen.fill((128, 128, 128))
 	draw_board(screen, board, grid, cell_side)
 	pygame.display.update()
 
 def main(screen):
-	grid = 125
+	grid = 50
 	cell_side = int(SIDE/grid)
 	board = [[0 for j in range(grid)] for i in range(grid)]
 	delay = 0.25
@@ -73,12 +67,7 @@ def main(screen):
 			if pygame.mouse.get_pressed()[0]:
 				pos = pygame.mouse.get_pos()
 				board = revive(board, pos, cell_side)
-			if pygame.mouse.get_pressed()[2]:
-				pos = pygame.mouse.get_pos()
-				board = kill(board, pos, cell_side)
 			if event.type == pygame.KEYDOWN:
-				if event.key == pygame.K_u:
-					board = update(board, grid)
 				if event.key == pygame.K_s:
 					start = not start
 		
