@@ -6,6 +6,3 @@ Simple Conway Game Of Life written in Python
 
 ## Requirements
 Python 3.6+ and [pygame](https://www.pygame.org/) is required.
-
-## Author
-The author of this project is Jakub Rudnik.
